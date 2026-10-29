@@ -26,8 +26,8 @@
         <a href="https://discord.gg/rV26FZ2upF">
 <img src="https://img.shields.io/discord/728708207907962900?color=7289DA&label=Support&logo=discord&style=for-the-badge" alt="Discord">
   </a>
-        <a href="https://heroku.com/deploy?template=https://github.com/ICraveiroI/TTVDropBot/tree/main">
-<img src="https://img.shields.io/badge/Deploy-Deploy?color=7056BF&label=Heroku&logo=Heroku&style=for-the-badge" alt="Discord">
+        <a href="https://heroku.com/deploy?template=https://github.com/ICraveiroI/TTVDropBot">
+<img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy to Heroku">
   </a>
 </p>
 
@@ -236,7 +236,7 @@
 
 **3. Step**
 <p align="center">
-    <b>Go to the Resources tab and disable the web dyno and enable the worker instead</b><br/>
+    <b>Go to the Resources tab and check that the worker dyno is enabled (the button already enables it automatically)</b><br/>
 </p>
 
 ![Twitch Drops](https://i.imgur.com/5XeKXRC.png)

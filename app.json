@@ -1,12 +1,42 @@
 {
   "name": "TTVDropBot",
-  "description": "Twitch Drop Bot. Automaticlly Farms every Twitch Drop available like Rust for ya and now also your Custom Channel's ",
+  "description": "Twitch Drop Bot. Automatically farms every Twitch Drop available like Rust for you and now also your Custom Channels.",
   "keywords": [
     "Bot",
     "Twitch",
     "Rust",
-	"Webhook"
+    "Webhook"
   ],
-  "repository": "https://github.com/ICraveiroI/TTVDropBot/tree/main",
-  "logo": "https://i.imgur.com/2WtgNe4.png"
+  "repository": "https://github.com/ICraveiroI/TTVDropBot",
+  "logo": "https://i.imgur.com/2WtgNe4.png",
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  },
+  "env": {
+    "ttvdropbot_token": {
+      "description": "Your Twitch auth token. Leave empty on the first deploy and get it with: node ./build/index.js --showtoken (see readme).",
+      "required": false
+    },
+    "ttvdropbot_games": {
+      "description": "Priority list of games separated by spaces. Use _ instead of spaces inside a game name (e.g. Rust Lost_Ark).",
+      "required": false
+    },
+    "ttvdropbot_webhook": {
+      "description": "Discord Webhook URL for notifications (optional).",
+      "required": false
+    },
+    "ttvdropbot_autoclaim": {
+      "description": "Automatically claim drops (true/false).",
+      "value": "true",
+      "required": false
+    }
+  }
 }

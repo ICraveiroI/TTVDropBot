@@ -155,6 +155,11 @@ export async function matchArgs() {
     if (args.showtoken!==undefined) userdata.showtoken = args.showtoken
     if (args.token !== undefined) { await writetoken(args.token)}
 
+    //Ignore empty env vars (e.g. optional Heroku config vars left blank), otherwise JSON.parse would throw
+    for (const key of Object.keys(process.env)) {
+        if (key.startsWith('ttvdropbot_') && process.env[key]!.trim() === '') delete process.env[key]
+    }
+
     if (process.env.ttvdropbot_chrome !== undefined) userdata.settings.Chromeexe = process.env.ttvdropbot_chrome;
     if (process.env.ttvdropbot_userdata!==undefined) userdata.settings.UserDataPath = process.env.ttvdropbot_userdata
     if (process.env.ttvdropbot_webhook!==undefined) userdata.settings.WebHookURL = process.env.ttvdropbot_webhook
